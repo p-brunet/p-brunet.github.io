@@ -9,7 +9,7 @@ project:
     - Energy
     - Data Engineering
     - Visualization
-  github: p-brunet/my-blog
+  github: p-brunet/p-brunet.github.io
   exclude:
     - _build
     - Thumbs.db

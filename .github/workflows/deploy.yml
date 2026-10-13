@@ -44,19 +44,16 @@ jobs:
         run: npm install -g mystmd
 
       - name: Build HTML Assets
-        # Remove BASE_URL if using a custom domain (CNAME)
-        env:
-          BASE_URL: /${{ github.event.repository.name }}
+        # No BASE_URL: p-brunet.github.io is a user site, served from the domain root
         run: myst build --html
 
       - name: Generate RSS and Atom feeds
         run: python generate_rss.py
 
-      # TODO: Update the URL below with your custom domain
       - name: Rewrite localhost URLs in sitemap
         run: |
           if [ -f ./_build/html/sitemap.xml ]; then
-            sed -i 's|http://localhost:[0-9]*|https://example.com|g' ./_build/html/sitemap.xml
+            sed -i 's|http://localhost:[0-9]*|https://p-brunet.github.io|g' ./_build/html/sitemap.xml
           fi
 
       - name: Copy static files
