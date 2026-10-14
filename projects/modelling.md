@@ -9,6 +9,17 @@ Spatial and energy modelling — demand forecasting, network analysis and machin
 
 ::::{grid} 1 1 2 2
 
+:::{card} How Much More Could This Power Line Carry?
+:link: /posts/dlr-ottawa-outaouais
+:header: ![thumbnail](https://raw.githubusercontent.com/p-brunet/dlr-demo/main/docs/figures/bottleneck_spans.png)
+October 2026 — Sensorless dynamic line rating of the Ontario–Québec HVDC tie line from open weather forecasts, LiDAR terrain and OpenStreetMap, with forecast verification and an interactive story map.
+
+<span class="badge badge-python">Python</span>
+<span class="badge badge-gis">GIS</span>
+<span class="badge badge-rasterio">rasterio</span>
+<span class="badge badge-matplotlib">matplotlib</span>
+:::
+
 :::{card} How Much Solar Power Is Montreal Leaving on the Roof?
 :link: /posts/solar-mtl
 :header: ![thumbnail](https://raw.githubusercontent.com/p-brunet/solar-potential-MTL/main/data/outputs/policy_scenarios.png)
