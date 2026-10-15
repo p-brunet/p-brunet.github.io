@@ -2,6 +2,8 @@
 title: Paul Brunet
 subtitle: Geospatial projects, maps and energy analysis.
 description: A personal blog about GIS, data engineering, visualization and energy.
+site:
+  hide_outline: true
 ---
 
 ```{image} banner.jpg
