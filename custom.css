@@ -1,28 +1,62 @@
-/* ─── Top navbar – fir green ─────────────────────────────────────────────── */
-header,
-header.navbar,
-nav.navbar,
-.navbar,
-.bd-header,
-.bd-header-article,
-.topbar,
-.navbar-header-container,
-.pst-header-article-overlay {
-  background-color: #1B4332 !important;
+/* ─── Fir green accent: re-points MyST's blue theme tokens ─────────────────── */
+/* html:root / html.dark outrank the theme's :root / .dark whatever the load order */
+html:root {
+  --myst-color-link: #2D6A4F;
+  --myst-color-link-hover: #1B4332;
+  --myst-color-link-underline: #74C69D;
+  --myst-color-active: #2D6A4F;
+  --myst-color-active-bg: rgba(116, 198, 157, .25);
+  --myst-color-active-surface: #EEF6F1;
+  --myst-color-primary: #2D6A4F;
+  --myst-color-primary-hover: #1B4332;
+  --myst-color-focus-ring: #2D6A4F;
+  --myst-color-focus-outline: #95D5B2;
 }
 
-header a,
-nav.navbar a,
-.navbar a,
-.bd-header a,
-.topbar a {
-  color: #ffffff !important;
+html.dark {
+  --myst-color-link: #74C69D;
+  --myst-color-link-hover: #95D5B2;
+  --myst-color-link-underline: #40916C;
+  --myst-color-active: #74C69D;
+  --myst-color-active-bg: rgba(64, 145, 108, .25);
+  --myst-color-active-surface: #1A2E25;
+  --myst-color-primary: #74C69D;
+  --myst-color-primary-hover: #95D5B2;
+  --myst-color-focus-ring: #74C69D;
+  --myst-color-focus-outline: #74C69D;
 }
 
-header a:hover,
-nav.navbar a:hover,
-.topbar a:hover {
-  color: #a8d5b5 !important;
+/* The theme also ships hard-coded blue .link rules (incl. a .dark variant); point them back at the tokens */
+:root .link,
+:root .hover-link {
+  color: var(--myst-color-link);
+  text-decoration-color: var(--myst-color-link-underline);
+}
+
+:root .link:hover,
+:root .hover-link:hover {
+  color: var(--myst-color-link-hover);
+  text-decoration-color: var(--myst-color-link-hover);
+}
+
+/* ─── Reading measure: 16px on phones up to 18px on desktop; 31em ≈ 70 chars of system-ui ── */
+article.content {
+  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.125rem);
+}
+
+article.content p,
+article.content li {
+  max-width: 31em;
+}
+
+/* More air above a section heading than below it, so it binds to its own content.
+   Padding, because the theme forces margin-top: 0 !important on .article-grid children */
+article.content h2 {
+  padding-top: 0.75em;
+}
+
+.myst-card {
+  font-size: 1rem;
 }
 
 /* ─── Logo sizing & no white box in dark mode ────────────────────────────── */
@@ -58,16 +92,16 @@ nav.navbar a:hover,
 
 .badge-python    { background-color: #3776AB; }
 .badge-duckdb    { background-color: #FFC906; color: #1a1a1a; }
-.badge-docker    { background-color: #2496ED; }
+.badge-docker    { background-color: #1572C4; }
 .badge-sql       { background-color: #336791; }
 .badge-plotly    { background-color: #3F4F75; }
-.badge-airflow   { background-color: #017CEE; }
-.badge-iceberg   { background-color: #26A7DE; }
-.badge-ml        { background-color: #E05A00; }
+.badge-airflow   { background-color: #0270D8; }
+.badge-iceberg   { background-color: #197AA4; }
+.badge-ml        { background-color: #BF4E00; }
 .badge-rasterio  { background-color: #4A7C59; }
 .badge-matplotlib{ background-color: #11557C; }
-.badge-gis       { background-color: #2E8B57; }
-.badge-dbt       { background-color: #FF694B; }
+.badge-gis       { background-color: #2A7D4F; }
+.badge-dbt       { background-color: #C4432B; }
 
 /* ─── Giscus comments ────────────────────────────────────────────────────── */
 #giscus-comments {
