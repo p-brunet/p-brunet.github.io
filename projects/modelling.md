@@ -1,6 +1,6 @@
 ---
 title: Modeling
-description: Spatial and energy modelling projects: demand forecasting, network analysis, ML.
+description: "Spatial and energy modelling projects: demand forecasting, network analysis, ML."
 ---
 
 # Modeling

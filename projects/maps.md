@@ -1,6 +1,6 @@
 ---
 title: Maps
-description: Cartographic projects: interactive maps, static prints and spatial analysis.
+description: "Cartographic projects: interactive maps, static prints and spatial analysis."
 ---
 
 # Maps

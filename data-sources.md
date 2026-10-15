@@ -11,7 +11,9 @@ A curated list of open data sources used across projects on this blog.
 
 ## Geospatial
 
-- [Copernicus](https://www.copernicus.eu/en)
+- [Copernicus Data Space Ecosystem](https://dataspace.copernicus.eu/): Sentinel-5P / TROPOMI atmospheric CH₄ observations (free account, API download)
+- [NRCan building footprints](https://open.canada.ca/data/en/dataset/7a5cda52-c7df-427f-9ced-26f19a8a64d6): national building polygons as GeoParquet (Canada)
+- [Montréal administrative boundaries](https://donnees.montreal.ca/en/dataset/limites-administratives-agglomeration): borough polygons (GeoJSON)
 
 ## LiDAR & Elevation
 
@@ -29,8 +31,14 @@ A curated list of open data sources used across projects on this blog.
 - [OpenStreetMap power lines (Overpass API)](https://overpass-api.de/): transmission line ways, towers and substations
 - [IESO Intertie Schedule and Flow](https://reports-public.ieso.ca/public/IntertieScheduleFlow/): hourly/5-min Ontario intertie flows (rolling ~3 months)
 
+### Demand & Tariffs
+
+- [Hydro-Québec open data](https://donnees.hydroquebec.com/explore/dataset/historique-demande-electricite-quebec/): historical Québec electricity demand
+- [Hydro-Québec Rate D](https://www.hydroquebec.com/residential/customer-space/rates/rate-d.html): residential electricity tariff (Québec)
+
 ### Renewables
 
+- [PVGIS (EU JRC)](https://re.jrc.ec.europa.eu/pvg_tools/en/): typical meteorological year (TMY) solar irradiance, via API
 
 ---
 
