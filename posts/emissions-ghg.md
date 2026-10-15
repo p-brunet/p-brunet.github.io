@@ -34,8 +34,6 @@ keywords:
 <span class="badge badge-dbt">dbt</span>
 <span class="badge badge-docker">Docker</span>
 
-# Detecting Methane Anomalies in Alberta with Satellite Data
-
 **GitHub**: [p-brunet/emissions-ghg](https://github.com/p-brunet/emissions-ghg)
 
 ## Overview

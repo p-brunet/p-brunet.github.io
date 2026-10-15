@@ -6,7 +6,7 @@ authors:
     url: https://github.com/p-brunet
 description: >
   A sensorless dynamic line rating of the Ontario–Québec HVDC tie line near Ottawa,
-  built only from open weather forecasts, LiDAR terrain and OpenStreetMap — and why
+  built only from open weather forecasts, LiDAR terrain and OpenStreetMap, and why
   the static rating it is compared against turns out to be optimistic almost a third
   of the time.
 thumbnail: "https://raw.githubusercontent.com/p-brunet/dlr-demo/main/docs/figures/bottleneck_spans.png"
@@ -34,16 +34,14 @@ keywords:
 <span class="badge badge-rasterio">rasterio</span>
 <span class="badge badge-matplotlib">matplotlib</span>
 
-# How Much More Could This Power Line Carry?
-
 **GitHub**: [p-brunet/dlr-demo](https://github.com/p-brunet/dlr-demo)
 
 ## Overview
 
 A power line's capacity is a temperature limit in disguise. Current heats the
 conductor; sun heats it further; wind and cold air take the heat away. Utilities
-usually rate a line once, for a bad-but-plausible day — a hot afternoon with
-barely any wind — and then use that **static rating** all season.
+usually rate a line once, for a bad-but-plausible day (a hot afternoon with
+barely any wind), and then use that **static rating** all season.
 
 **Dynamic line rating (DLR)** replaces that single number with one that follows
 the weather. It is one of the cheapest ways to get more out of an existing grid,
@@ -56,8 +54,8 @@ Hydro-Québec's Outaouais converter station. It carries the main Ontario–Québ
 tie: on 10 October 2026 it ran pegged at about 1,234 MW all day, right at the
 converter's 1,250 MW limit.
 
-One honest caveat up front: with both circuits in service, the **converter** —
-not the line — caps that transfer. Thermal headroom on the line matters when one
+One honest caveat up front: with both circuits in service, the **converter**,
+not the line, caps that transfer. Thermal headroom on the line matters when one
 circuit is out, which is where this kind of analysis would be used. I come back
 to that below.
 
@@ -65,16 +63,16 @@ to that below.
 
 ::::{grid} 1 1 3 3
 
-:::{card} Line geometry — OpenStreetMap
-The route, 111 towers and two substations, traced and validated from Overpass. Twice, the way that actually crosses the river carried no tags at all — so the pipeline now refuses any route that doesn't reach both substations.
+:::{card} Line geometry (OpenStreetMap)
+The route, 111 towers and two substations, traced and validated from Overpass. Twice, the way that actually crosses the river carried no tags at all, so the pipeline now refuses any route that doesn't reach both substations.
 :::
 
-:::{card} Weather — ECCC HRDPS
+:::{card} Weather (ECCC HRDPS)
 Canada's 2.5 km, 0–48 h forecast model, read as cloud-native Zarr through [dynamical.org](https://dynamical.org/): every run since 9 July 2026, about 390 forecasts.
 :::
 
-:::{card} Terrain — NRCan HRDEM
-1 m LiDAR terrain and surface models. They give each tower's altitude — and how many trees or buildings stand close enough to shelter each span from the wind.
+:::{card} Terrain (NRCan HRDEM)
+1 m LiDAR terrain and surface models. They give each tower's altitude, and how many trees or buildings stand close enough to shelter each span from the wind.
 :::
 
 ::::
@@ -87,8 +85,8 @@ months online.
 The physics is the CIGRE TB 601 heat balance, through Statnett's open-source
 [`linerate`](https://github.com/statnett/linerate) library. The project's tests
 reproduce the brochure's worked examples before anything else runs. The real
-conductor isn't public, so I assume a typical one — two ACSR *Drake* conductors
-per phase — and report most results **relative to the static rating**, which
+conductor isn't public, so I assume a typical one (two ACSR *Drake* conductors
+per phase) and report most results **relative to the static rating**, which
 barely depends on that choice (swapping for a size up or down moves the median
 gain by one percentage point).
 
@@ -100,12 +98,20 @@ A line is only as strong as its weakest span, so the rating is computed for all
 ::::{grid} 1 1 2 2
 
 :::{card} Terrain and tower heights
-![Span model](https://raw.githubusercontent.com/p-brunet/dlr-demo/main/docs/figures/span_model.png)
+```{image} https://raw.githubusercontent.com/p-brunet/dlr-demo/main/docs/figures/span_model.png
+:alt: Span model
+:class: chart-card-img
+```
+
 The LiDAR surface model even "sees" the towers: 26–87 m above ground, tallest at the river crossing.
 :::
 
 :::{card} Where the bottleneck sits
-![Weakest-span map](https://raw.githubusercontent.com/p-brunet/dlr-demo/main/docs/figures/bottleneck_spans.png)
+```{image} https://raw.githubusercontent.com/p-brunet/dlr-demo/main/docs/figures/bottleneck_spans.png
+:alt: Weakest-span map
+:class: chart-card-img
+```
+
 95 of the 110 spans are the limiting one at some hour.
 :::
 
@@ -114,13 +120,13 @@ The LiDAR surface model even "sees" the towers: 26–87 m above ground, tallest 
 The reason is geometry. This line doesn't run straight: it heads north-east,
 crosses the river, then zig-zags north to the converter, so its spans point in
 every direction. Whatever way the wind blows, it runs nearly **along** some
-spans — and wind along a conductor cools it far less than wind across it.
+spans, and wind along a conductor cools it far less than wind across it.
 
 ## Headline Numbers
 
 Over July to mid-October 2026 (2,316 hours):
 
-| | |
+| Measure | Result |
 |---|---|
 | Static summer rating | ≈850 MW per circuit |
 | Weather-based rating, median | **+8 %** over static |
@@ -129,11 +135,11 @@ Over July to mid-October 2026 (2,316 hours):
 | Ambient-temperature-only rating above the weather-based one | 99 % of hours |
 
 The second-to-last line is the surprising one. The static rating assumes a gentle
-4 km/h breeze **perpendicular to every span at once** — on a line that turns, that
+4 km/h breeze **perpendicular to every span at once**. On a line that turns, that
 almost never happens. Ambient-adjusted ratings, which only update the temperature,
 inherit the same optimistic wind.
 
-::::{grid} 1 1 2 2
+::::{grid} 1 1 1 1
 
 :::{card} One week in August
 ![Ratings over a week](https://raw.githubusercontent.com/p-brunet/dlr-demo/main/docs/figures/ratings_week.png)
@@ -150,7 +156,7 @@ project: whether a 2.5 km model's hourly wind direction should be trusted exactl
 at the scale of a 300 m span. Minute-by-minute wind from Environment Canada's
 station at the Experimental Farm narrows it: within an hour the direction swings
 by 8–15°, and averaging the cooling over those minutes behaves like a **9°**
-minimum angle — a median gain of about **+12 %**. One station, four weeks and 9 km
+minimum angle, for a median gain of about **+12 %**. One station, four weeks and 9 km
 from the line is evidence rather than proof; a couple of anemometers on the spans
 that limit the line most often would settle it.
 
@@ -164,7 +170,7 @@ at leads of 1 to 48 hours:
   looks like now;
 - a safety margin fitted on July–August (9 % at 7 h, 17 % day-ahead) keeps the
   resulting **"secure" rating above the true one in only 1 % of September–October
-  hours** — the static rating did so 19 % of the time.
+  hours**, whereas the static rating did so 19 % of the time.
 
 ![Day-ahead forecasts](https://raw.githubusercontent.com/p-brunet/dlr-demo/main/docs/figures/secure_dayahead_week.png)
 
@@ -176,7 +182,7 @@ rises on cool windy days.
 Checked against real observations, the picture holds up better than I first
 thought. Hourly airport reports are two-minute snapshots, which exaggerate the
 error; using the minute data instead, a virtual copy of the line placed at the
-station needs a **16 %** margin (20 % in light wind) — in line with the
+station needs a **16 %** margin (20 % in light wind), in line with the
 model-based day-ahead margin. One warning sign remains: in light wind the model
 over-forecasts the wind by about 0.5 m/s, exactly when ratings bind.
 
@@ -188,20 +194,20 @@ The interactive version opens on a **live forecast for the next 48 hours**,
 rebuilt automatically from every new Environment Canada weather run (about every
 6 hours), with the secure rating, the weakest span hour by hour and the forecast
 wind. A second view walks back through every hour since July in six short
-chapters — hover any span to see the wind's angle to its wire. Like the solar map before it,
-it's a link rather than an embed: [**open the story map →**](https://p-brunet.github.io/dlr-demo/)
-— or the same data with a time slider in
+chapters. Hover any span to see the wind's angle to its wire. Like the solar map before it,
+it's a link rather than an embed: [**open the story map →**](https://p-brunet.github.io/dlr-demo/),
+or the same data with a time slider in
 [**GeoLibre →**](https://p-brunet.github.io/dlr-demo/geolibre.html).
 
 ## What About the N-1 Case?
 
 If one of the two circuits trips, the other must carry the flow within its
 emergency rating (127 °C in Ontario). With the assumed conductor, a single circuit
-manages about 1,090 MW — below the tie's typical flow of about 1,165 MW, more
+manages about 1,090 MW: below the tie's typical flow of about 1,165 MW, more
 than half the time. Weather-based ratings would cover an extra 5 % of hours.
 
 That mostly tells us the real conductor is larger than my assumption, or that the
-converter runs back after a contingency — open data can't say which. It's the
+converter runs back after a contingency. Open data can't say which. It's the
 right question for DLR on this line, but answering it needs the operator's
 numbers.
 
@@ -211,8 +217,8 @@ numbers.
   published Ontario values, not Hydro One's.
 - 2.5 km weather can't resolve span-scale wind; the terrain sheltering index is a
   heuristic.
-- Three months of summer and early fall. Winter — usually where DLR gains are
-  largest — isn't in the archive yet.
+- Three months of summer and early fall. Winter, usually where DLR gains are
+  largest, isn't in the archive yet.
 - Ratings are steady-state; the conductor's thermal inertia would smooth short dips.
 - Not for operational use.
 

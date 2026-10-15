@@ -67,6 +67,7 @@ nav.navbar a:hover,
 .badge-rasterio  { background-color: #4A7C59; }
 .badge-matplotlib{ background-color: #11557C; }
 .badge-gis       { background-color: #2E8B57; }
+.badge-dbt       { background-color: #FF694B; }
 
 /* ─── Giscus comments ────────────────────────────────────────────────────── */
 #giscus-comments {
@@ -79,21 +80,24 @@ nav.navbar a:hover,
   width: 100% !important;
 }
 
-/* ─── Card thumbnails — all pages ───────────────────────────────────────── */
+/* ─── Card thumbnails, all pages ───────────────────────────────────────── */
 .myst-card-header {
   padding: 0.5rem !important;
   border-bottom: none !important;
   background: transparent !important;
 }
 
+/* Same box for every thumbnail, whatever the source image's ratio (portrait posters, wide charts) */
 .myst-card-header img {
   display: block;
   width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
   margin: 0 !important;
   border-radius: 4px;
 }
 
-/* ─── Chart images paired in a grid — forces equal height regardless of native ratio ── */
+/* ─── Chart images paired in a grid: forces equal height regardless of native ratio ── */
 .chart-card-img {
   width: 100%;
   aspect-ratio: 3 / 2;

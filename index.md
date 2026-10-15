@@ -1,7 +1,7 @@
 ---
 title: Paul Brunet
 subtitle: Geospatial projects, maps and energy analysis.
-description: A personal blog — GIS, data engineering, visualization and energy.
+description: A personal blog about GIS, data engineering, visualization and energy.
 ---
 
 ```{image} banner.jpg
@@ -34,10 +34,21 @@ This space aims to present and share findings, skills and workaround with data a
 
 ::::{grid} 1 1 2 2
 
+:::{card} How Much More Could This Power Line Carry?
+:link: /posts/dlr-ottawa-outaouais
+:header: ![thumbnail](https://raw.githubusercontent.com/p-brunet/dlr-demo/main/docs/figures/bottleneck_spans.png)
+October 13, 2026 · Sensorless dynamic line rating of the Ontario–Québec HVDC tie line from open weather forecasts, LiDAR terrain and OpenStreetMap, with forecast verification and an interactive story map.
+
+<span class="badge badge-python">Python</span>
+<span class="badge badge-gis">GIS</span>
+<span class="badge badge-rasterio">rasterio</span>
+<span class="badge badge-matplotlib">matplotlib</span>
+:::
+
 :::{card} How Much Solar Power Is Montreal Leaving on the Roof?
 :link: /posts/solar-mtl
 :header: ![thumbnail](https://raw.githubusercontent.com/p-brunet/solar-potential-MTL/main/data/outputs/policy_scenarios.png)
-July 3, 2026 — LiDAR, building footprints and Hydro-Québec tariffs combined into an XGBoost surrogate model to estimate rooftop solar potential for 419,000 Montreal buildings, and why the economics — not the physics — is holding it back.
+July 3, 2026 · LiDAR, building footprints and Hydro-Québec tariffs combined into an XGBoost surrogate model to estimate rooftop solar potential for 419,000 Montreal buildings, and why the economics, not the physics, is holding it back.
 
 <span class="badge badge-python">Python</span>
 <span class="badge badge-rasterio">rasterio</span>
@@ -48,7 +59,7 @@ July 3, 2026 — LiDAR, building footprints and Hydro-Québec tariffs combined i
 :::{card} Detecting Methane Anomalies in Alberta with Satellite Data
 :link: /posts/emissions-ghg
 :header: ![thumbnail](https://raw.githubusercontent.com/p-brunet/emissions-ghg/main/outputs/visualizations/ch4_facilities_overlay.png)
-May 14, 2026 — Medallion pipeline cross-referencing Sentinel-5P satellite observations with Alberta Energy Regulator facility reports to detect methane anomalies.
+May 14, 2026 · Medallion pipeline cross-referencing Sentinel-5P satellite observations with Alberta Energy Regulator facility reports to detect methane anomalies.
 
 <span class="badge badge-python">Python</span>
 <span class="badge badge-duckdb">DuckDB</span>
@@ -60,7 +71,7 @@ May 14, 2026 — Medallion pipeline cross-referencing Sentinel-5P satellite obse
 :::{card} JayPeakMap: Topographic Maps of Jay Peak from LiDAR Data
 :link: /posts/jay-peak-map
 :header: ![thumbnail](https://raw.githubusercontent.com/p-brunet/JayPeakMap/main/jay_peak_poster.png)
-May 10, 2026 — Minimalist topographic maps of Jay Peak (Vermont) generated from open LiDAR data using Python and matplotlib.
+May 10, 2026 · Minimalist topographic maps of Jay Peak (Vermont) generated from open LiDAR data using Python and matplotlib.
 
 <span class="badge badge-python">Python</span>
 <span class="badge badge-rasterio">rasterio</span>
